@@ -6,81 +6,69 @@ import { Input } from "@/components/ui/input";
 import { Textarea } from "@/components/ui/textarea";
 import { Label } from "@/components/ui/label";
 import { useToast } from "@/hooks/use-toast";
-
-const contactInfo = [
-  {
-    icon: Mail,
-    title: "Email Us",
-    details: "info@techflow.com",
-    description: "We'll respond within 24 hours",
-  },
-  {
-    icon: Phone,
-    title: "Call Us",
-    details: "+1 (234) 567-890",
-    description: "Mon-Fri, 9am-6pm EST",
-  },
-  {
-    icon: MapPin,
-    title: "Visit Us",
-    details: "123 Tech Street",
-    description: "Silicon Valley, CA 94000",
-  },
-  {
-    icon: Clock,
-    title: "Business Hours",
-    details: "Mon - Fri: 9AM - 6PM",
-    description: "Weekend support available",
-  },
-];
-
+const contactInfo = [{
+  icon: Mail,
+  title: "Email Us",
+  details: "info@techflow.com",
+  description: "We'll respond within 24 hours"
+}, {
+  icon: Phone,
+  title: "Call Us",
+  details: "+1 (234) 567-890",
+  description: "Mon-Fri, 9am-6pm EST"
+}, {
+  icon: MapPin,
+  title: "Visit Us",
+  details: "123 Tech Street",
+  description: "Silicon Valley, CA 94000"
+}, {
+  icon: Clock,
+  title: "Business Hours",
+  details: "Mon - Fri: 9AM - 6PM",
+  description: "Weekend support available"
+}];
 const Contact = () => {
-  const { toast } = useToast();
+  const {
+    toast
+  } = useToast();
   const [isSubmitting, setIsSubmitting] = useState(false);
   const [formData, setFormData] = useState({
     name: "",
     email: "",
     company: "",
     subject: "",
-    message: "",
+    message: ""
   });
-
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
     setIsSubmitting(true);
-
-    await new Promise((resolve) => setTimeout(resolve, 1000));
-
+    await new Promise(resolve => setTimeout(resolve, 1000));
     toast({
       title: "Message sent!",
-      description: "We'll get back to you within 24 hours.",
+      description: "We'll get back to you within 24 hours."
     });
-
     setFormData({
       name: "",
       email: "",
       company: "",
       subject: "",
-      message: "",
+      message: ""
     });
     setIsSubmitting(false);
   };
-
   const handleChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => {
-    setFormData((prev) => ({
+    setFormData(prev => ({
       ...prev,
-      [e.target.name]: e.target.value,
+      [e.target.name]: e.target.value
     }));
   };
-
-  return (
-    <Layout>
+  return <Layout>
       {/* Hero Banner */}
       <section className="relative pt-32 pb-20 lg:pt-40 lg:pb-28 bg-gradient-to-br from-slate-900 via-blue-900 to-slate-800 overflow-hidden">
         <div className="absolute inset-0 opacity-20">
           <div className="absolute inset-0" style={{
-            backgroundImage: `url("data:image/svg+xml,%3Csvg width='60' height='60' viewBox='0 0 60 60' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='none' fill-rule='evenodd'%3E%3Cg fill='%23ffffff' fill-opacity='0.1'%3E%3Cpath d='M36 34v-4h-2v4h-4v2h4v4h2v-4h4v-2h-4zm0-30V0h-2v4h-4v2h4v4h2V6h4V4h-4zM6 34v-4H4v4H0v2h4v4h2v-4h4v-2H6zM6 4V0H4v4H0v2h4v4h2V6h4V4H6z'/%3E%3C/g%3E%3C/g%3E%3C/svg%3E")`,
-          }} />
+          backgroundImage: `url("data:image/svg+xml,%3Csvg width='60' height='60' viewBox='0 0 60 60' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='none' fill-rule='evenodd'%3E%3Cg fill='%23ffffff' fill-opacity='0.1'%3E%3Cpath d='M36 34v-4h-2v4h-4v2h4v4h2v-4h4v-2h-4zm0-30V0h-2v4h-4v2h4v4h2V6h4V4h-4zM6 34v-4H4v4H0v2h4v4h2v-4h4v-2H6zM6 4V0H4v4H0v2h4v4h2V6h4V4H6z'/%3E%3C/g%3E%3C/g%3E%3C/svg%3E")`
+        }} />
         </div>
         <div className="container mx-auto px-4 sm:px-6 relative z-10">
           <div className="max-w-2xl">
@@ -109,8 +97,7 @@ const Contact = () => {
               </p>
 
               <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-1 gap-4">
-                {contactInfo.map((item) => (
-                  <div key={item.title} className="flex items-start gap-4 p-4 bg-muted/50 rounded-lg">
+                {contactInfo.map(item => <div key={item.title} className="flex items-start gap-4 p-4 bg-muted/50 rounded-lg">
                     <div className="w-10 h-10 rounded-lg bg-gradient-to-br from-blue-600 to-blue-800 flex items-center justify-center shrink-0">
                       <item.icon className="w-5 h-5 text-white" />
                     </div>
@@ -119,91 +106,13 @@ const Contact = () => {
                       <p className="text-foreground text-sm">{item.details}</p>
                       <p className="text-xs text-muted-foreground">{item.description}</p>
                     </div>
-                  </div>
-                ))}
+                  </div>)}
               </div>
             </div>
 
             {/* Contact Form */}
             <div className="lg:col-span-3">
-              <div className="bg-card rounded-xl p-6 lg:p-8 border border-border shadow-sm">
-                <h2 className="text-xl font-bold text-card-foreground mb-6">Send us a Message</h2>
-                <form onSubmit={handleSubmit} className="space-y-5">
-                  <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
-                    <div className="space-y-2">
-                      <Label htmlFor="name" className="text-sm">Full Name</Label>
-                      <Input
-                        id="name"
-                        name="name"
-                        placeholder="John Doe"
-                        value={formData.name}
-                        onChange={handleChange}
-                        required
-                      />
-                    </div>
-                    <div className="space-y-2">
-                      <Label htmlFor="email" className="text-sm">Email Address</Label>
-                      <Input
-                        id="email"
-                        name="email"
-                        type="email"
-                        placeholder="john@company.com"
-                        value={formData.email}
-                        onChange={handleChange}
-                        required
-                      />
-                    </div>
-                  </div>
-
-                  <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
-                    <div className="space-y-2">
-                      <Label htmlFor="company" className="text-sm">Company (Optional)</Label>
-                      <Input
-                        id="company"
-                        name="company"
-                        placeholder="Your Company"
-                        value={formData.company}
-                        onChange={handleChange}
-                      />
-                    </div>
-                    <div className="space-y-2">
-                      <Label htmlFor="subject" className="text-sm">Subject</Label>
-                      <Input
-                        id="subject"
-                        name="subject"
-                        placeholder="How can we help?"
-                        value={formData.subject}
-                        onChange={handleChange}
-                        required
-                      />
-                    </div>
-                  </div>
-
-                  <div className="space-y-2">
-                    <Label htmlFor="message" className="text-sm">Message</Label>
-                    <Textarea
-                      id="message"
-                      name="message"
-                      placeholder="Tell us about your project or inquiry..."
-                      rows={5}
-                      value={formData.message}
-                      onChange={handleChange}
-                      required
-                    />
-                  </div>
-
-                  <Button type="submit" size="lg" className="w-full sm:w-auto" disabled={isSubmitting}>
-                    {isSubmitting ? (
-                      "Sending..."
-                    ) : (
-                      <>
-                        Send Message
-                        <Send className="ml-2 w-4 h-4" />
-                      </>
-                    )}
-                  </Button>
-                </form>
-              </div>
+              
             </div>
           </div>
         </div>
@@ -219,8 +128,6 @@ const Contact = () => {
           </div>
         </div>
       </section>
-    </Layout>
-  );
+    </Layout>;
 };
-
 export default Contact;
