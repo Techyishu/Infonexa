@@ -28,12 +28,12 @@ export const Header = () => {
           </Link>
 
           {/* Desktop Navigation */}
-          <nav className="hidden lg:flex items-center gap-8">
+          <nav className="hidden lg:flex items-center gap-10">
             {navLinks.map((link) => (
               <Link
                 key={link.name}
                 to={link.href}
-                className="text-lg font-medium text-foreground hover:text-primary"
+                className="text-lg font-semibold text-foreground hover:text-primary"
               >
                 {link.name}
               </Link>
@@ -66,11 +66,11 @@ export const Header = () => {
         <div className="lg:hidden border-b bg-background">
           <div className="container mx-auto px-4 pb-4 flex flex-col gap-3">
             <nav className="flex flex-col gap-2">
-                  {navLinks.map((link) => (
+              {navLinks.map((link) => (
                 <Link
                   key={link.name}
                   to={link.href}
-                      className="text-lg py-1 text-foreground hover:text-primary"
+                  className="text-lg py-1.5 text-foreground hover:text-primary"
                   onClick={() => setIsMobileMenuOpen(false)}
                 >
                   {link.name}
