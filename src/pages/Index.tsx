@@ -1,8 +1,9 @@
 import { Layout } from "@/components/layout";
 import {
-  HeroSection,
+  HeroVideoSlider,
   ServicesSection,
-  StatsSection,
+  WhyChooseUs,
+  TechnologyStack,
   TestimonialsSection,
   CTASection,
 } from "@/components/home";
@@ -10,9 +11,10 @@ import {
 const Index = () => {
   return (
     <Layout>
-      <HeroSection />
+      <HeroVideoSlider />
       <ServicesSection />
-      <StatsSection />
+      <WhyChooseUs />
+      <TechnologyStack />
       <TestimonialsSection />
       <CTASection />
     </Layout>

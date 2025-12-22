@@ -65,11 +65,11 @@ export default {
   			background: 'hsl(var(--background))',
   			foreground: 'hsl(var(--foreground))',
   			primary: {
-  				DEFAULT: 'hsl(var(--primary))',
+  				DEFAULT: '#3B82F6',
   				foreground: 'hsl(var(--primary-foreground))'
   			},
   			secondary: {
-  				DEFAULT: 'hsl(var(--secondary))',
+  				DEFAULT: '#10B981',
   				foreground: 'hsl(var(--secondary-foreground))'
   			},
   			destructive: {
@@ -186,6 +186,16 @@ export default {
   				'50%': {
   					boxShadow: '0 0 40px hsl(var(--primary) / 0.5)'
   				}
+  			},
+  			'count-up': {
+  				'0%': {
+  					opacity: '0',
+  					transform: 'translateY(10px)'
+  				},
+  				'100%': {
+  					opacity: '1',
+  					transform: 'translateY(0)'
+  				}
   			}
   		},
   		animation: {
@@ -197,7 +207,8 @@ export default {
   			'slide-out-right': 'slide-out-right 0.3s ease-out',
   			'scale-in': 'scale-in 0.3s ease-out',
   			float: 'float 3s ease-in-out infinite',
-  			'pulse-glow': 'pulse-glow 2s ease-in-out infinite'
+  			'pulse-glow': 'pulse-glow 2s ease-in-out infinite',
+  			'count-up': 'count-up 0.6s ease-out forwards'
   		},
   		boxShadow: {
   			'2xs': 'var(--shadow-2xs)',

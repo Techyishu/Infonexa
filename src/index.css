@@ -171,4 +171,11 @@
     backdrop-filter: blur(12px);
     background-color: hsl(var(--background) / 0.8);
   }
+
+  .line-clamp-2 {
+    display: -webkit-box;
+    -webkit-line-clamp: 2;
+    -webkit-box-orient: vertical;
+    overflow: hidden;
+  }
 }

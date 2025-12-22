@@ -4,7 +4,6 @@ import { Mail, Phone, MapPin, Facebook, Twitter, Linkedin, Instagram } from "luc
 const footerLinks = {
   company: [
     { name: "About Us", href: "/about" },
-    { name: "Our Team", href: "/team" },
     { name: "Careers", href: "/contact" },
     { name: "Contact", href: "/contact" },
   ],
@@ -91,13 +90,49 @@ export const Footer = () => {
           <div>
             <h4 className="font-semibold mb-4">Services</h4>
             <ul className="space-y-3">
-              {footerLinks.services.map((link) => (
-                <li key={link.name}>
+              {[
+                "AI & Data Analytics",
+                "Digital Acceleration",
+                "Application Modernization",
+                "Database Modernization",
+                "Infrastructure Modernization",
+                "Cybersecurity",
+                "Site Reliability Services",
+                "Automation",
+                "Staffing & IT Consulting",
+              ].map((name) => (
+                <li key={name}>
                   <Link
-                    to={link.href}
+                    to="/services"
                     className="text-primary-foreground/70 hover:text-primary transition-colors"
                   >
-                    {link.name}
+                    {name}
+                  </Link>
+                </li>
+              ))}
+            </ul>
+          </div>
+
+          <div>
+            <h4 className="font-semibold mb-4">Solutions</h4>
+            <ul className="space-y-3">
+              {[
+                "Robotic Process Automation",
+                "Data & AI",
+                "Cloud & DevOps",
+                "Snowflake & Informatica",
+                "ServiceNow",
+                "ERP",
+                "CRM",
+                "Adobe Experience Manager",
+                "Optimizely",
+              ].map((name) => (
+                <li key={name}>
+                  <Link
+                    to="/services"
+                    className="text-primary-foreground/70 hover:text-primary transition-colors"
+                  >
+                    {name}
                   </Link>
                 </li>
               ))}
