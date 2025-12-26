@@ -4,50 +4,44 @@ import { useState } from "react";
 
 const testimonials = [
   {
-    name: "Sarah Johnson",
+    name: "Rajesh Kumar",
     position: "CTO",
-    company: "TechVision Inc.",
-    image: "https://images.unsplash.com/photo-1494790108377-be9c29b29330?w=400&h=400&fit=crop",
+    company: "TechVision India",
     content: "Working with Infonexa has been transformative for our business. Their cloud solutions reduced our infrastructure costs by 40% while improving performance significantly.",
     rating: 5,
   },
   {
-    name: "Michael Chen",
+    name: "Priya Sharma",
     position: "CEO",
     company: "DataFlow Systems",
-    image: "https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?w=400&h=400&fit=crop",
     content: "The team's expertise in digital transformation helped us modernize our entire tech stack. The results exceeded our expectations in every way.",
     rating: 5,
   },
   {
-    name: "Emily Rodriguez",
+    name: "Amit Patel",
     position: "Director of IT",
     company: "SecureNet Solutions",
-    image: "https://images.unsplash.com/photo-1438761681033-6461ffad8d80?w=400&h=400&fit=crop",
     content: "Their cybersecurity solutions gave us peace of mind. The comprehensive approach and 24/7 monitoring is exactly what we needed.",
     rating: 5,
   },
   {
-    name: "David Park",
+    name: "Sneha Reddy",
     position: "VP of Operations",
     company: "InnovateCorp",
-    image: "https://images.unsplash.com/photo-1500648767791-00dcc994a43e?w=400&h=400&fit=crop",
     content: "Infonexa's AI and data analytics platform revolutionized how we make business decisions. The insights we've gained are invaluable.",
     rating: 5,
   },
   {
-    name: "Lisa Thompson",
+    name: "Vikram Singh",
     position: "Founder",
     company: "StartupHub",
-    image: "https://images.unsplash.com/photo-1487412720507-e7ab37603c6f?w=400&h=400&fit=crop",
     content: "From consultation to implementation, the entire process was seamless. They truly understand what modern businesses need to succeed.",
     rating: 5,
   },
   {
-    name: "James Williams",
+    name: "Ananya Iyer",
     position: "IT Manager",
     company: "GlobalTech Industries",
-    image: "https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=400&h=400&fit=crop",
     content: "The level of professionalism and technical expertise is outstanding. Our systems have never been more reliable and efficient.",
     rating: 5,
   },
@@ -64,7 +58,7 @@ export const TestimonialsSection = () => {
         <div className="absolute bottom-0 left-0 w-96 h-96 bg-purple-400/10 rounded-full blur-3xl" />
       </div>
 
-      <div className="container mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
+      <div className="container mx-auto px-6 sm:px-8 lg:px-12 max-w-6xl relative z-10">
         {/* Section Header */}
         <AnimatedSection direction="up" className="text-center mb-16">
           <h2 className="text-4xl md:text-5xl lg:text-6xl font-black text-gray-900 mb-4">
@@ -114,21 +108,13 @@ export const TestimonialsSection = () => {
 
                 {/* Author Info */}
                 <div className="flex items-center gap-4 pt-6 border-t border-gray-100">
-                  <img
-                    src={testimonial.image}
-                    alt={testimonial.name}
-                    className="w-14 h-14 rounded-full object-cover ring-4 ring-gray-100 group-hover:ring-blue-100 transition-all duration-300"
-                  />
+                  <div className="w-14 h-14 rounded-full bg-gradient-to-br from-blue-600 to-purple-600 flex items-center justify-center text-white text-xl font-bold">
+                    {testimonial.name.charAt(0)}
+                  </div>
                   <div>
                     <h4 className="font-bold text-gray-900 text-lg">
                       {testimonial.name}
                     </h4>
-                    <p className="text-gray-600 text-sm">
-                      {testimonial.position}
-                    </p>
-                    <p className="text-blue-600 text-sm font-semibold">
-                      {testimonial.company}
-                    </p>
                   </div>
                 </div>
               </div>
@@ -141,12 +127,12 @@ export const TestimonialsSection = () => {
           <div className="inline-flex items-center gap-3 px-8 py-4 bg-white rounded-full shadow-lg border border-gray-100">
             <div className="flex -space-x-2">
               {testimonials.slice(0, 4).map((testimonial, index) => (
-                <img
+                <div
                   key={index}
-                  src={testimonial.image}
-                  alt=""
-                  className="w-10 h-10 rounded-full ring-2 ring-white object-cover"
-                />
+                  className="w-10 h-10 rounded-full ring-2 ring-white bg-gradient-to-br from-blue-600 to-purple-600 flex items-center justify-center text-white text-sm font-bold"
+                >
+                  {testimonial.name.charAt(0)}
+                </div>
               ))}
             </div>
             <div className="text-left">

@@ -114,7 +114,7 @@ const Contact = () => {
             }}
           />
         </motion.div>
-        <div className="container mx-auto px-4 sm:px-6 relative z-10">
+        <div className="container mx-auto px-6 sm:px-8 lg:px-12 max-w-6xl relative z-10">
           <motion.div
             initial={{ opacity: 0, y: 30 }}
             animate={{ opacity: 1, y: 0 }}
@@ -150,8 +150,8 @@ const Contact = () => {
       </section>
 
       {/* Contact Section */}
-      <section className="py-16 lg:py-24 bg-background overflow-hidden">
-        <div className="container mx-auto px-4 sm:px-6">
+      <section className="py-20 lg:py-28 bg-background overflow-hidden">
+        <div className="container mx-auto px-6 sm:px-8 lg:px-12 max-w-6xl">
           <div className="grid grid-cols-1 lg:grid-cols-5 gap-10 lg:gap-12">
             {/* Contact Info */}
             <motion.div

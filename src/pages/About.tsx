@@ -84,7 +84,7 @@ const About = () => {
             backgroundImage: `url("data:image/svg+xml,%3Csvg width='60' height='60' viewBox='0 0 60 60' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='none' fill-rule='evenodd'%3E%3Cg fill='%23ffffff' fill-opacity='0.1'%3E%3Cpath d='M36 34v-4h-2v4h-4v2h4v4h2v-4h4v-2h-4zm0-30V0h-2v4h-4v2h4v4h2V6h4V4h-4zM6 34v-4H4v4H0v2h4v4h2v-4h4v-2H6zM6 4V0H4v4H0v2h4v4h2V6h4V4H6z'/%3E%3C/g%3E%3C/g%3E%3C/svg%3E")`,
           }} />
         </motion.div>
-        <div className="container mx-auto px-4 sm:px-6 relative z-10">
+        <div className="container mx-auto px-6 sm:px-8 lg:px-12 max-w-6xl relative z-10">
           <motion.div
             initial={{ opacity: 0, y: 30 }}
             animate={{ opacity: 1, y: 0 }}
@@ -120,8 +120,8 @@ const About = () => {
       </section>
 
       {/* Stats Section */}
-      <section className="py-12 bg-background border-b">
-        <div className="container mx-auto px-4 sm:px-6">
+      <section className="py-16 md:py-20 bg-background border-b">
+        <div className="container mx-auto px-6 sm:px-8 lg:px-12 max-w-6xl">
           <motion.div
             variants={containerVariants}
             initial="hidden"
@@ -152,8 +152,8 @@ const About = () => {
       </section>
 
       {/* Our Story */}
-      <section className="py-16 lg:py-24 bg-background overflow-hidden">
-        <div className="container mx-auto px-4 sm:px-6">
+      <section className="py-20 lg:py-28 bg-background overflow-hidden">
+        <div className="container mx-auto px-6 sm:px-8 lg:px-12 max-w-6xl">
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-10 lg:gap-16 items-center">
             <motion.div
               initial={{ opacity: 0, x: -50 }}
@@ -242,8 +242,8 @@ const About = () => {
       </section>
 
       {/* Core Values */}
-      <section className="py-16 lg:py-24 bg-muted/30 overflow-hidden">
-        <div className="container mx-auto px-4 sm:px-6">
+      <section className="py-20 lg:py-28 bg-muted/30 overflow-hidden">
+        <div className="container mx-auto px-6 sm:px-8 lg:px-12 max-w-6xl">
           <motion.div
             initial={{ opacity: 0, y: 30 }}
             whileInView={{ opacity: 1, y: 0 }}
@@ -291,61 +291,6 @@ const About = () => {
         </div>
       </section>
 
-      {/* Timeline */}
-      <section className="py-16 lg:py-24 bg-background overflow-hidden">
-        <div className="container mx-auto px-4 sm:px-6">
-          <motion.div
-            initial={{ opacity: 0, y: 30 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.6 }}
-            viewport={{ once: false }}
-            className="text-center max-w-xl mx-auto mb-12"
-          >
-            <p className="text-primary font-medium text-sm tracking-wider uppercase mb-3">
-              Our Journey
-            </p>
-            <h2 className="text-2xl sm:text-3xl lg:text-4xl font-bold text-foreground">
-              Milestones
-            </h2>
-          </motion.div>
-
-          <div className="max-w-2xl mx-auto">
-            <div className="relative">
-              {/* Timeline line */}
-              <div className="absolute left-6 top-0 bottom-0 w-0.5 bg-border hidden sm:block" />
-
-              {timeline.map((item, index) => (
-                <motion.div
-                  key={item.year}
-                  initial={{ opacity: 0, x: -30 }}
-                  whileInView={{ opacity: 1, x: 0 }}
-                  transition={{ duration: 0.5, delay: index * 0.1 }}
-                  viewport={{ once: false }}
-                  whileHover={{ x: 5 }}
-                  className="flex gap-4 sm:gap-6 mb-6 last:mb-0"
-                >
-                  <motion.div
-                    whileHover={{ scale: 1.1, rotate: 360 }}
-                    transition={{ duration: 0.6 }}
-                    className="w-12 h-12 rounded-full bg-gradient-to-br from-blue-600 to-blue-800 flex items-center justify-center text-white font-bold text-sm shrink-0 z-10 cursor-pointer"
-                  >
-                    {item.year.slice(2)}
-                  </motion.div>
-                  <motion.div
-                    whileHover={{ scale: 1.02 }}
-                    className="flex-1 bg-card rounded-lg p-4 border border-border hover:border-primary/30 transition-all cursor-pointer"
-                  >
-                    <p className="text-xs text-primary font-semibold mb-1">{item.year}</p>
-                    <h3 className="text-base font-semibold text-foreground mb-1">{item.title}</h3>
-                    <p className="text-sm text-muted-foreground">{item.description}</p>
-                  </motion.div>
-                </motion.div>
-              ))}
-            </div>
-          </div>
-        </div>
-      </section>
-
       {/* CTA */}
       <section className="py-16 lg:py-20 bg-gradient-to-r from-blue-600 to-blue-800 overflow-hidden relative">
         <motion.div
@@ -360,7 +305,7 @@ const About = () => {
           }}
           className="absolute top-0 right-0 w-96 h-96 bg-white/10 rounded-full blur-3xl"
         />
-        <div className="container mx-auto px-4 sm:px-6 text-center relative z-10">
+        <div className="container mx-auto px-6 sm:px-8 lg:px-12 max-w-6xl text-center relative z-10">
           <motion.h2
             initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}

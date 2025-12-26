@@ -72,8 +72,8 @@ const statVariants = {
 
 export const WhyChooseUs = () => {
     return (
-        <section className="py-20 md:py-28 bg-muted/30 overflow-hidden">
-            <div className="container mx-auto px-4 sm:px-6 lg:px-8">
+        <section className="py-24 md:py-32 bg-muted/30 overflow-hidden">
+            <div className="container mx-auto px-6 sm:px-8 lg:px-12 max-w-6xl">
                 <motion.div
                     initial={{ opacity: 0, y: 30 }}
                     whileInView={{ opacity: 1, y: 0 }}

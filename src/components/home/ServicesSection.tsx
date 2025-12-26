@@ -144,8 +144,8 @@ const itemVariants = {
 
 export const ServicesSection = () => {
   return (
-    <section className="py-20 md:py-28 bg-background overflow-hidden">
-      <div className="container mx-auto px-4 sm:px-6 lg:px-8">
+    <section className="py-24 md:py-32 bg-background overflow-hidden">
+      <div className="container mx-auto px-6 sm:px-8 lg:px-12 max-w-6xl">
 
         {/* Services Section */}
         <div className="mb-24">

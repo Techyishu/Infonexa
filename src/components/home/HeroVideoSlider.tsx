@@ -6,28 +6,28 @@ import { useCallback, useEffect, useState, useRef } from "react";
 
 const videoSlides = [
   {
-    video: "/Futuristic_Data_Center_Video_Generation.mp4",
+    video: "/2516160-hd_1920_1080_24fps.mp4",
     title: "Cloud Computing Excellence",
     subtitle: "Infonexa",
     description: "Transforming Businesses with Modern IT Solutions",
     overlay: "from-blue-600/10 via-purple-600/5 to-pink-600/5",
   },
   {
-    video: "/Digital_City_Transformation_Video.mp4",
+    video: "/2792370-hd_1920_1080_30fps.mp4",
     title: "Digital Transformation",
     subtitle: "Infonexa",
     description: "Transforming Businesses with Modern IT Solutions",
     overlay: "from-indigo-600/10 via-blue-600/5 to-cyan-600/5",
   },
   {
-    video: "/Cybersecurity_Network_Visualization_Video.mp4",
+    video: "/6963744-hd_1920_1080_25fps.mp4",
     title: "Cybersecurity Solutions",
     subtitle: "Infonexa",
     description: "Transforming Businesses with Modern IT Solutions",
     overlay: "from-emerald-600/10 via-teal-600/5 to-cyan-600/5",
   },
   {
-    video: "/Dynamic_AI_Analytics_Dashboard_Animation.mp4",
+    video: "/7253660-uhd_4096_2160_30fps.mp4",
     title: "AI & Data Intelligence",
     subtitle: "Infonexa",
     description: "Transforming Businesses with Modern IT Solutions",
@@ -45,9 +45,20 @@ export const HeroVideoSlider = () => {
   const [emblaRef, emblaApi] = useEmblaCarousel({ loop: true, duration: 20 });
   const [selectedIndex, setSelectedIndex] = useState(0);
   const videoRefs = useRef<(HTMLVideoElement | null)[]>([]);
+  const autoplayTimeoutRef = useRef<NodeJS.Timeout | null>(null);
 
   const scrollPrev = useCallback(() => emblaApi?.scrollPrev(), [emblaApi]);
   const scrollNext = useCallback(() => emblaApi?.scrollNext(), [emblaApi]);
+
+  const playCurrentVideo = useCallback((index: number) => {
+    const video = videoRefs.current[index];
+    if (video) {
+      video.currentTime = 0; // Reset to start
+      video.play().catch((error) => {
+        console.log("Video autoplay prevented:", error);
+      });
+    }
+  }, []);
 
   useEffect(() => {
     if (!emblaApi) return;
@@ -55,27 +66,41 @@ export const HeroVideoSlider = () => {
     const onSelect = () => {
       const newIndex = emblaApi.selectedScrollSnap();
       setSelectedIndex(newIndex);
-      // Pause all videos
-      videoRefs.current.forEach((video) => {
-        if (video) video.pause();
-      });
-      // Play current video
-      if (videoRefs.current[newIndex]) {
-        videoRefs.current[newIndex]?.play();
+
+      // Clear any existing autoplay timeout
+      if (autoplayTimeoutRef.current) {
+        clearTimeout(autoplayTimeoutRef.current);
       }
+
+      // Pause all videos and reset them
+      videoRefs.current.forEach((video, idx) => {
+        if (video) {
+          video.pause();
+          if (idx !== newIndex) {
+            video.currentTime = 0;
+          }
+        }
+      });
+
+      // Play current video
+      playCurrentVideo(newIndex);
+
+      // Set timeout to move to next slide after 10 seconds
+      autoplayTimeoutRef.current = setTimeout(() => {
+        emblaApi.scrollNext();
+      }, 10000); // 10 seconds
     };
 
     emblaApi.on("select", onSelect);
     onSelect(); // Initialize
 
-    // Auto-play carousel
-    const autoplay = setInterval(() => emblaApi.scrollNext(), 6000);
-
     return () => {
       emblaApi.off("select", onSelect);
-      clearInterval(autoplay);
+      if (autoplayTimeoutRef.current) {
+        clearTimeout(autoplayTimeoutRef.current);
+      }
     };
-  }, [emblaApi]);
+  }, [emblaApi, playCurrentVideo]);
 
   return (
     <section className="relative h-screen w-full overflow-hidden">
@@ -92,13 +117,14 @@ export const HeroVideoSlider = () => {
                   videoRefs.current[index] = el;
                 }}
                 className="absolute inset-0 w-full h-full object-cover z-0"
-                autoPlay
+                autoPlay={index === 0}
                 muted
-                loop
                 playsInline
                 onLoadedData={(e) => {
                   if (index === 0) {
-                    (e.target as HTMLVideoElement).play();
+                    (e.target as HTMLVideoElement).play().catch((error) => {
+                      console.log("Initial video autoplay prevented:", error);
+                    });
                   }
                 }}
               >
@@ -112,7 +138,7 @@ export const HeroVideoSlider = () => {
 
               {/* Content Overlay */}
               <div className="absolute inset-0 z-20 flex items-center justify-center">
-                <div className="container mx-auto px-4 sm:px-6 lg:px-8">
+                <div className="container mx-auto px-6 sm:px-8 lg:px-12 max-w-6xl">
                   <div className="max-w-4xl mx-auto text-center">
                     <p className="text-white font-bold text-sm tracking-[0.2em] uppercase mb-4 animate-float drop-shadow-[0_2px_8px_rgba(0,0,0,0.9)]">
                       {slide.subtitle}
@@ -189,13 +215,6 @@ export const HeroVideoSlider = () => {
             aria-label={`Go to slide ${index + 1}`}
           />
         ))}
-      </div>
-
-      {/* Scroll Indicator */}
-      <div className="absolute bottom-20 left-1/2 -translate-x-1/2 z-30 animate-bounce">
-        <div className="w-6 h-10 border-2 border-white/50 rounded-full flex items-start justify-center p-2">
-          <div className="w-1 h-3 bg-white/50 rounded-full animate-pulse" />
-        </div>
       </div>
     </section>
   );

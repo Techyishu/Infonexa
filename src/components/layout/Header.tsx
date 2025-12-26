@@ -15,24 +15,24 @@ export const Header = () => {
 
   return (
     <>
-      <header className="border-b bg-background">
-        <div className="container mx-auto px-4 py-4 flex items-center justify-between">
+      <header className="border-b border-blue-700 bg-gradient-to-r from-blue-900 via-blue-800 to-indigo-900 shadow-lg">
+        <div className="container mx-auto px-6 sm:px-8 lg:px-12 max-w-6xl py-6 flex items-center justify-between">
           <Link to="/" className="flex items-center gap-3">
             <img
-              src="/WhatsApp_Image_2025-12-16_at_22.56.21-removebg-preview.png"
+              src="/WhatsApp_Image_2025-12-25_at_14.56.43-removebg-preview.png"
               alt="Infonexa logo"
-              className="h-16 sm:h-20 lg:h-24 w-auto object-contain"
+              className="h-20 sm:h-24 lg:h-32 w-auto object-contain"
             />
             <span className="sr-only">Infonexa</span>
           </Link>
 
           {/* Desktop Navigation */}
-          <nav className="hidden lg:flex items-center gap-10">
+          <nav className="hidden lg:flex items-center gap-8">
             {navLinks.map((link) => (
               <Link
                 key={link.name}
                 to={link.href}
-                className="text-lg font-semibold text-foreground hover:text-primary"
+                className="text-lg font-semibold text-white hover:text-blue-200 transition-colors"
               >
                 {link.name}
               </Link>
@@ -52,9 +52,9 @@ export const Header = () => {
             aria-label="Toggle menu"
           >
             {isMobileMenuOpen ? (
-              <X className="w-6 h-6 text-foreground" />
+              <X className="w-6 h-6 text-white" />
             ) : (
-              <Menu className="w-6 h-6 text-foreground" />
+              <Menu className="w-6 h-6 text-white" />
             )}
           </button>
         </div>
@@ -62,14 +62,14 @@ export const Header = () => {
 
       {/* Simple Mobile Menu */}
       {isMobileMenuOpen && (
-        <div className="lg:hidden border-b bg-background">
-          <div className="container mx-auto px-4 pb-4 flex flex-col gap-3">
+        <div className="lg:hidden border-b border-blue-700 bg-gradient-to-r from-blue-900 via-blue-800 to-indigo-900 shadow-lg">
+          <div className="container mx-auto px-6 sm:px-8 lg:px-12 max-w-6xl pb-6 flex flex-col gap-3">
             <nav className="flex flex-col gap-2">
               {navLinks.map((link) => (
                 <Link
                   key={link.name}
                   to={link.href}
-                  className="text-lg py-1.5 text-foreground hover:text-primary"
+                  className="text-lg py-1.5 text-white hover:text-blue-200"
                   onClick={() => setIsMobileMenuOpen(false)}
                 >
                   {link.name}
