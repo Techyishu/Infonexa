@@ -12,7 +12,13 @@ const contactInfo = [
   {
     icon: Mail,
     title: "Email Us",
-    details: "info@infonexa.in | bhawesh.kumar@infonexa.in",
+    details: (
+      <>
+        info@infonexa.in
+        <br />
+        bhawesh.kumar@infonexa.in
+      </>
+    ),
     description: "We'll respond within 24 hours",
   },
   {
@@ -331,34 +337,6 @@ const Contact = () => {
             </motion.div>
           </div>
         </div>
-      </section>
-
-      {/* Map Section */}
-      <section className="h-64 sm:h-80 bg-muted relative overflow-hidden">
-        <motion.div
-          initial={{ opacity: 0, scale: 0.95 }}
-          whileInView={{ opacity: 1, scale: 1 }}
-          transition={{ duration: 0.6 }}
-          viewport={{ once: false }}
-          className="absolute inset-0 flex items-center justify-center"
-        >
-          <div className="text-center px-4">
-            <motion.div
-              animate={{
-                y: [0, -10, 0],
-              }}
-              transition={{
-                duration: 2,
-                repeat: Infinity,
-                ease: "easeInOut",
-              }}
-            >
-              <MapPin className="w-10 h-10 text-muted-foreground mx-auto mb-3" />
-            </motion.div>
-            <p className="text-muted-foreground text-sm">Interactive map would be displayed here</p>
-            <p className="text-xs text-muted-foreground mt-1">Karolbagh, New Delhi</p>
-          </div>
-        </motion.div>
       </section>
     </Layout>
   );
