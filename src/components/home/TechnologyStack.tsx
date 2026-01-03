@@ -2,7 +2,7 @@ import {
     Code2, Cloud, Database, Shield, Cpu, Network,
     Container, GitBranch, Server, Layers
 } from "lucide-react";
-import { motion } from "framer-motion";
+import { motion, Variants } from "framer-motion";
 
 const technologies = [
     {
@@ -37,7 +37,7 @@ const technologies = [
     },
 ];
 
-const containerVariants = {
+const containerVariants: Variants = {
     hidden: { opacity: 0 },
     visible: {
         opacity: 1,
@@ -47,7 +47,7 @@ const containerVariants = {
     },
 };
 
-const cardVariants = {
+const cardVariants: Variants = {
     hidden: { y: 30, opacity: 0, rotateX: -15 },
     visible: {
         y: 0,
@@ -60,7 +60,7 @@ const cardVariants = {
     },
 };
 
-const tagVariants = {
+const tagVariants: Variants = {
     hidden: { scale: 0.8, opacity: 0 },
     visible: {
         scale: 1,

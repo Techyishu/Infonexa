@@ -4,7 +4,7 @@ import {
   UserCheck, PenTool, Gauge, Brain
 } from "lucide-react";
 import { ServiceCard } from "./ServiceCard";
-import { motion } from "framer-motion";
+import { motion, Variants } from "framer-motion";
 
 const services = [
   {
@@ -120,7 +120,7 @@ const solutions = [
   },
 ];
 
-const containerVariants = {
+const containerVariants: Variants = {
   hidden: { opacity: 0 },
   visible: {
     opacity: 1,
@@ -130,7 +130,7 @@ const containerVariants = {
   },
 };
 
-const itemVariants = {
+const itemVariants: Variants = {
   hidden: { y: 30, opacity: 0 },
   visible: {
     y: 0,

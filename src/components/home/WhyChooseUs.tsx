@@ -1,5 +1,5 @@
 import { CheckCircle2, Target, Users, Zap, Award, Shield } from "lucide-react";
-import { motion } from "framer-motion";
+import { motion, Variants } from "framer-motion";
 
 const whyChooseUsData = [
     {
@@ -34,7 +34,7 @@ const whyChooseUsData = [
     },
 ];
 
-const containerVariants = {
+const containerVariants: Variants = {
     hidden: { opacity: 0 },
     visible: {
         opacity: 1,
@@ -44,7 +44,7 @@ const containerVariants = {
     },
 };
 
-const itemVariants = {
+const itemVariants: Variants = {
     hidden: { y: 30, opacity: 0, scale: 0.95 },
     visible: {
         y: 0,
@@ -57,7 +57,7 @@ const itemVariants = {
     },
 };
 
-const statVariants = {
+const statVariants: Variants = {
     hidden: { scale: 0.8, opacity: 0 },
     visible: {
         scale: 1,

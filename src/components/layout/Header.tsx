@@ -16,12 +16,12 @@ export const Header = () => {
   return (
     <>
       <header className="border-b border-blue-700 bg-gradient-to-r from-blue-900 via-blue-800 to-indigo-900 shadow-lg">
-        <div className="container mx-auto px-6 sm:px-8 lg:px-12 max-w-6xl py-6 flex items-center justify-between">
+        <div className="container mx-auto px-6 sm:px-8 lg:px-12 max-w-6xl py-0 flex items-center justify-between">
           <Link to="/" className="flex items-center gap-3">
             <img
               src="/WhatsApp_Image_2025-12-25_at_14.56.43-removebg-preview.png"
               alt="Infonexa logo"
-              className="h-20 sm:h-24 lg:h-32 w-auto object-contain"
+              className="h-24 sm:h-32 lg:h-40 w-auto object-contain"
             />
             <span className="sr-only">Infonexa</span>
           </Link>
