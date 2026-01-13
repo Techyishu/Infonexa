@@ -15,13 +15,13 @@ export const Header = () => {
 
   return (
     <>
-      <header className="border-b border-blue-700 bg-gradient-to-r from-blue-900 via-blue-800 to-indigo-900 shadow-lg">
-        <div className="container mx-auto px-6 sm:px-8 lg:px-12 max-w-6xl py-0 flex items-center justify-between">
+      <header className="fixed top-0 left-0 right-0 z-50 border-b border-blue-700 bg-gradient-to-r from-blue-900 via-blue-800 to-indigo-900 shadow-lg">
+        <div className="container mx-auto px-6 sm:px-8 lg:px-12 max-w-6xl py-1 flex items-center justify-between">
           <Link to="/" className="flex items-center gap-3">
             <img
               src="/WhatsApp_Image_2025-12-25_at_14.56.43-removebg-preview.png"
               alt="Infonexa logo"
-              className="h-24 sm:h-32 lg:h-40 w-auto object-contain"
+              className="h-32 sm:h-40 lg:h-48 w-auto object-contain brightness-0 invert -my-8 sm:-my-10 lg:-my-12"
             />
             <span className="sr-only">Infonexa</span>
           </Link>
@@ -62,8 +62,8 @@ export const Header = () => {
 
       {/* Simple Mobile Menu */}
       {isMobileMenuOpen && (
-        <div className="lg:hidden border-b border-blue-700 bg-gradient-to-r from-blue-900 via-blue-800 to-indigo-900 shadow-lg">
-          <div className="container mx-auto px-6 sm:px-8 lg:px-12 max-w-6xl pb-6 flex flex-col gap-3">
+        <div className="lg:hidden fixed top-24 sm:top-28 left-0 right-0 z-40 border-b border-blue-700 bg-gradient-to-r from-blue-900 via-blue-800 to-indigo-900 shadow-lg">
+          <div className="container mx-auto px-6 sm:px-8 lg:px-12 max-w-6xl py-6 flex flex-col gap-3">
             <nav className="flex flex-col gap-2">
               {navLinks.map((link) => (
                 <Link
