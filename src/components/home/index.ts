@@ -1,10 +1,6 @@
 export { HeroVideoSlider } from "./HeroVideoSlider";
 export { ServicesSection } from "./ServicesSection";
-export { TrustSection } from "./TrustSection";
-export { FeaturedProjects } from "./FeaturedProjects";
 export { CTASection } from "./CTASection";
-export { ServiceCard } from "./ServiceCard";
-export { StatsCounter } from "./StatsCounter";
 export { WhyChooseUs } from "./WhyChooseUs";
 export { TechnologyStack } from "./TechnologyStack";
 export { TestimonialsSection } from "./TestimonialsSection";
