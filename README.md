@@ -115,5 +115,5 @@ MIT License - See [LICENSE](LICENSE) for details.
 ## Contact
 
 **Infonexa**
-- Website: [infonexa.com](https://infonexa.com)
-- Email: contact@infonexa.com
+- Website: [infonexa.in](https://infonexa.in)
+- Email: info@infonexa.in

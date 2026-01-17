@@ -1,5 +1,5 @@
 # Robots.txt for Infonexa
-# https://infonexa.com
+# https://infonexa.in
 
 User-agent: *
 Allow: /
@@ -7,7 +7,7 @@ Disallow: /api/
 Disallow: /*.json$
 
 # Sitemap
-Sitemap: https://infonexa.com/sitemap.xml
+Sitemap: https://infonexa.in/sitemap.xml
 
 # Crawl-delay (optional, for polite crawling)
 Crawl-delay: 1
