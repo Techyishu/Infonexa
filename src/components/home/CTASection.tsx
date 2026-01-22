@@ -6,18 +6,50 @@ import { Textarea } from "@/components/ui/textarea";
 import { Card, CardContent } from "@/components/ui/card";
 import { useState } from "react";
 import { motion } from "framer-motion";
+import { useToast } from "@/hooks/use-toast";
 
 export function CTASection() {
+  const { toast } = useToast();
+  const [isSubmitting, setIsSubmitting] = useState(false);
   const [formData, setFormData] = useState({
     name: "",
     email: "",
     message: "",
   });
 
-  const handleSubmit = (e: React.FormEvent) => {
+  const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
-    console.log("Form submitted:", formData);
+    setIsSubmitting(true);
+
+    // Format the message with all form data
+    const whatsappMessage = `Hello! I'm interested in your services.
+
+*Name:* ${formData.name}
+*Email:* ${formData.email}
+*Message:* ${formData.message}`;
+
+    // Encode the message for URL
+    const encodedMessage = encodeURIComponent(whatsappMessage);
+    
+    // Create WhatsApp link with phone number and message
+    const whatsappNumber = "9354146137";
+    const whatsappUrl = `https://wa.me/${whatsappNumber}?text=${encodedMessage}`;
+    
+    // Show toast notification
+    toast({
+      title: "Redirecting to WhatsApp...",
+      description: "You'll be redirected to WhatsApp to send your message.",
+    });
+    
+    // Small delay to show toast, then redirect
+    await new Promise((resolve) => setTimeout(resolve, 500));
+    
+    // Open WhatsApp in a new tab/window
+    window.open(whatsappUrl, '_blank');
+    
+    // Reset form
     setFormData({ name: "", email: "", message: "" });
+    setIsSubmitting(false);
   };
 
   return (
@@ -86,9 +118,16 @@ export function CTASection() {
                       type="submit"
                       size="lg"
                       className="w-full bg-white text-purple-600 hover:bg-white/90 shadow-lg"
+                      disabled={isSubmitting}
                     >
-                      Start Project
-                      <Send className="ml-2 w-4 h-4" />
+                      {isSubmitting ? (
+                        <>Redirecting...</>
+                      ) : (
+                        <>
+                          Start Project
+                          <Send className="ml-2 w-4 h-4" />
+                        </>
+                      )}
                     </Button>
                   </form>
                 </CardContent>

@@ -76,11 +76,35 @@ const Contact = () => {
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
     setIsSubmitting(true);
-    await new Promise((resolve) => setTimeout(resolve, 1000));
+
+    // Format the message with all form data
+    const whatsappMessage = `Hello! I'm interested in your services.
+
+*Name:* ${formData.name}
+*Email:* ${formData.email}
+${formData.company ? `*Company:* ${formData.company}\n` : ''}*Subject:* ${formData.subject}
+*Message:* ${formData.message}`;
+
+    // Encode the message for URL
+    const encodedMessage = encodeURIComponent(whatsappMessage);
+    
+    // Create WhatsApp link with phone number and message
+    const whatsappNumber = "9354146137";
+    const whatsappUrl = `https://wa.me/${whatsappNumber}?text=${encodedMessage}`;
+    
+    // Show toast notification
     toast({
-      title: "Message sent!",
-      description: "We'll get back to you within 24 hours.",
+      title: "Redirecting to WhatsApp...",
+      description: "You'll be redirected to WhatsApp to send your message.",
     });
+    
+    // Small delay to show toast, then redirect
+    await new Promise((resolve) => setTimeout(resolve, 500));
+    
+    // Open WhatsApp in a new tab/window
+    window.open(whatsappUrl, '_blank');
+    
+    // Reset form
     setFormData({
       name: "",
       email: "",
